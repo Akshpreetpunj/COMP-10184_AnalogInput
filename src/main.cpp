@@ -12,7 +12,7 @@ void setup() {
 void loop() {
   // defining the variables
   int iVal;
-  double temperature;
+  float temperature;
   String judgement;
 
   // read digitized value from the D1 Mini's A/D convertor
@@ -22,23 +22,23 @@ void loop() {
   
   // Serial.println("Digitized Value = " + String(iVal));
 
-  // double analogVoltage = iVal * 3.3 / 1024;
+  // float analogVoltage = iVal * 3.3 / 1023;
 
   // Calculating the temperature
-  temperature = (50 / 3.3) * (iVal * 3.3 / 1024); 
+  temperature = (50 / 3.3) * (iVal * 3.3 / 1023); 
 
   // Checking the temperature value
   if(temperature < 10){
     judgement = "Cold!";
   } else if (temperature >= 10 && temperature < 15){
-    judgement = "Cool!";
+    judgement = "Cool";
   } else if (temperature >= 15 && temperature < 25){
     judgement = "Perfect";
   } else if (temperature >= 25 && temperature < 30){
     judgement = "Warm";
   } else if (temperature >= 30 && temperature < 35){
     judgement = "Hot";
-  } else {
+  } else if (temperature >= 35) {
     judgement = "Too Hot!";
   }
 
